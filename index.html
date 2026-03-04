@@ -211,8 +211,7 @@
       .panel { padding: 16px 14px; }
       .footer { margin: 3em auto 1.5em; }
     }
-
-    /* ── Added for the four buttons ── */
+    /* ── Added for the four buttons + random ── */
     .extra-buttons {
       max-width: 820px;
       margin: 1.5em auto 3em auto;
@@ -247,11 +246,12 @@
     }
     @media (max-width: 680px) {
       .extra-buttons { gap: 12px; margin: 1em auto 2em auto; }
-      .extra-btn { height: 60px; font-size: 1.15rem; max-width: 48%; }
+      .extra-btn { height: 60px; font-size: 1.15rem; max-width: 45%; }
     }
   </style>
 </head>
 <body>
+
 <div class="panel">
   <h1>Cutesexual Training</h1>
   <div class="grid header">
@@ -345,12 +345,13 @@
   </div>
 </div>
 
-<!-- ── Only the four new buttons are added here ── -->
+<!-- Buttons section with the new random button -->
 <div class="extra-buttons">
   <button class="extra-btn" data-img="https://i.postimg.cc/SsHNx7R5/1.png">Step 1</button>
   <button class="extra-btn" data-img="https://i.postimg.cc/LXG68B50/2.png">Step 2</button>
   <button class="extra-btn" data-img="https://i.postimg.cc/C19LxH5s/3.png">Step 3</button>
   <button class="extra-btn" data-img="https://i.postimg.cc/vBCHZLTX/4.png">Step 4</button>
+  <button class="extra-btn" id="random-feral-btn">Random cutie</button>
 </div>
 
 <div class="panel">
@@ -423,16 +424,19 @@
     <button class="arrow right" onclick="nextImage7()">›</button>
   </div>
 </div>
+
 <div id="imageModal" onclick="closeModal()">
   <div id="modalContent">
     <span id="closeModal" onclick="closeModal()">×</span>
     <img id="modalImage" src="" alt="Expanded image">
   </div>
 </div>
+
 <div class="footer">
   <div class="pink-line"></div>
   <div class="developed">Developed by Kitsune. Chart by Pixelmew.</div>
 </div>
+
 <script>
 const images1 = [
   "https://i.postimg.cc/rp708cXC/2.png",
@@ -450,6 +454,7 @@ const imgElement1 = document.getElementById("currentImage1");
 function showImage1() { imgElement1.src = images1[currentIndex1]; }
 function nextImage1() { currentIndex1 = (currentIndex1 + 1) % images1.length; showImage1(); }
 function prevImage1() { currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length; showImage1(); }
+
 const images2 = [
   "https://i.postimg.cc/zBBkbqVV/1-2.png",
   "https://i.postimg.cc/wvGQDnmx/2-2.png",
@@ -461,6 +466,7 @@ const imgElement2 = document.getElementById("currentImage2");
 function showImage2() { imgElement2.src = images2[currentIndex2]; }
 function nextImage2() { currentIndex2 = (currentIndex2 + 1) % images2.length; showImage2(); }
 function prevImage2() { currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length; showImage2(); }
+
 const images3 = [
   "https://i.postimg.cc/yN5TZw9S/1-3.png",
   "https://i.postimg.cc/yN5TZw90/2-3.png",
@@ -474,6 +480,7 @@ const imgElement3 = document.getElementById("currentImage3");
 function showImage3() { imgElement3.src = images3[currentIndex3]; }
 function nextImage3() { currentIndex3 = (currentIndex3 + 1) % images3.length; showImage3(); }
 function prevImage3() { currentIndex3 = (currentIndex3 - 1 + images3.length) % images3.length; showImage3(); }
+
 const images4 = [
   "https://i.postimg.cc/RVsJhww1/1-4.png",
   "https://i.postimg.cc/9QDR7zBZ/2-4.png",
@@ -486,6 +493,7 @@ const imgElement4 = document.getElementById("currentImage4");
 function showImage4() { imgElement4.src = images4[currentIndex4]; }
 function nextImage4() { currentIndex4 = (currentIndex4 + 1) % images4.length; showImage4(); }
 function prevImage4() { currentIndex4 = (currentIndex4 - 1 + images4.length) % images4.length; showImage4(); }
+
 const images5 = [
   "https://i.postimg.cc/6pZ6KZ0D/1-5.png",
   "https://i.postimg.cc/FHSFvSpQ/2-5.png",
@@ -497,6 +505,7 @@ const imgElement5 = document.getElementById("currentImage5");
 function showImage5() { imgElement5.src = images5[currentIndex5]; }
 function nextImage5() { currentIndex5 = (currentIndex5 + 1) % images5.length; showImage5(); }
 function prevImage5() { currentIndex5 = (currentIndex5 - 1 + images5.length) % images5.length; showImage5(); }
+
 const images6 = [
   "https://i.postimg.cc/Hsy18gyr/1-6.png",
   "https://i.postimg.cc/7Y2rJk2M/2-6.png",
@@ -509,6 +518,7 @@ const imgElement6 = document.getElementById("currentImage6");
 function showImage6() { imgElement6.src = images6[currentIndex6]; }
 function nextImage6() { currentIndex6 = (currentIndex6 + 1) % images6.length; showImage6(); }
 function prevImage6() { currentIndex6 = (currentIndex6 - 1 + images6.length) % images6.length; showImage6(); }
+
 const images7 = [
   "https://i.postimg.cc/RCnvKKrJ/1-7.png",
   "https://i.postimg.cc/rytqxx65/2-7.png",
@@ -521,6 +531,7 @@ const imgElement7 = document.getElementById("currentImage7");
 function showImage7() { imgElement7.src = images7[currentIndex7]; }
 function nextImage7() { currentIndex7 = (currentIndex7 + 1) % images7.length; showImage7(); }
 function prevImage7() { currentIndex7 = (currentIndex7 - 1 + images7.length) % images7.length; showImage7(); }
+
 function openModal() {
   let src = "";
   const target = event.currentTarget;
@@ -534,14 +545,16 @@ function openModal() {
   document.getElementById("modalImage").src = src;
   document.getElementById("imageModal").style.display = "flex";
 }
+
 function closeModal() {
   document.getElementById("imageModal").style.display = "none";
 }
+
 document.getElementById("imageModal").addEventListener("click", function(e) {
   if (e.target === this) closeModal();
 });
 
-// ── Added: handler for the new extra buttons ──
+// ── Handler for Step buttons ──
 function openExtra(e) {
   const url = e.target.dataset.img;
   if (url) {
@@ -550,12 +563,56 @@ function openExtra(e) {
   }
 }
 
+// ── Random Safe Feral Image from e621 ──
+const RANDOM_API_URL = 'https://e621.net/posts.json?limit=1&tags=feral+presenting+rating:safe+order:random';
+const USER_AGENT = 'CutesexualTrainingViewer/1.0 (by yourname on e621)'; // ← change 'yourname' to your e621 username or project name
+
+async function fetchRandomFeralImage() {
+  try {
+    const response = await fetch(RANDOM_API_URL, {
+      headers: {
+        'User-Agent': USER_AGENT
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`e621 returned ${response.status}`);
+    }
+
+    const data = await response.json();
+    const post = data.posts?.[0];
+
+    if (!post || !post.sample?.url) {
+      console.warn('No valid post or sample URL');
+      return null;
+    }
+
+    return post.sample.url; // preview size – fast & good for modal
+    // For full size: return post.file?.url || post.sample.url;
+  } catch (error) {
+    console.error('Random image fetch failed:', error);
+    return null;
+  }
+}
+
+// Attach click to the random button
+document.getElementById('random-feral-btn')?.addEventListener('click', async () => {
+  const imageUrl = await fetchRandomFeralImage();
+  if (imageUrl) {
+    document.getElementById("modalImage").src = imageUrl;
+    document.getElementById("imageModal").style.display = "flex";
+  } else {
+    alert("Couldn't load a random image right now. Try again in a moment!");
+  }
+});
+
 document.querySelectorAll('.circle').forEach(el => {
   el.addEventListener('click', () => {
     el.classList.toggle('completed');
     saveProgress();
   });
 });
+
 function saveProgress() {
   const data = {};
   document.querySelectorAll('.circle').forEach(el => {
@@ -565,6 +622,7 @@ function saveProgress() {
   });
   localStorage.setItem('cuteProgress', JSON.stringify(data));
 }
+
 function loadProgress() {
   const saved = JSON.parse(localStorage.getItem('cuteProgress') || '{}');
   document.querySelectorAll('.circle').forEach(el => {
@@ -573,6 +631,7 @@ function loadProgress() {
     }
   });
 }
+
 loadProgress();
 showImage1();
 showImage2();
@@ -582,8 +641,8 @@ showImage5();
 showImage6();
 showImage7();
 
-// ── Added: attach click listeners to the new buttons ──
-document.querySelectorAll('.extra-btn').forEach(btn => {
+// Attach listeners to step buttons
+document.querySelectorAll('.extra-btn:not(#random-feral-btn)').forEach(btn => {
   btn.addEventListener('click', openExtra);
 });
 </script>
