@@ -564,7 +564,7 @@ function openExtra(e) {
 }
 
 // ── Random Safe Feral Image from e621 ──
-const RANDOM_API_URL = 'https://e621.net/posts.json?limit=1&tags=feral+presenting+-anthro+-dinosaur+rating:safe+order:random';
+const RANDOM_API_URL = 'https://e621.net/posts.json?limit=1&tags=feral+presenting+-3d+-anthro+-dinosaur+rating:safe+order:random';
 const USER_AGENT = 'CutesexualTrainingViewer/1.0 (by yourname on e621)'; // ← change 'yourname' to your e621 username or project name
 
 async function fetchRandomFeralImage() {
@@ -648,4 +648,5 @@ document.querySelectorAll('.extra-btn:not(#random-feral-btn)').forEach(btn => {
 </script>
 </body>
 </html>
+
 
